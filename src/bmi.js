@@ -23,7 +23,11 @@ function calculateBmi(event){
             output+= "You have a healthy weight";
         }
 
-        //
+        //Display the result
+        document.getElementById("result").innerHTML = output;
+    }else{
+        //handle invalid input
+        document.getElementById("result").innerHTML = "please enter valid height and weight.";
     }
 }
     
