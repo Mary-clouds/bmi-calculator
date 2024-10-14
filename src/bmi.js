@@ -6,8 +6,27 @@ function calculateBmi(event){
     let firstname = document.getElementById("firstName").value;
     let date = document.getElementById("birthDate").value;
     let gender = document.getElementById("gender").value;
-}
 
+    //checking if the valuees exist and are valid numbers
+    if(height && weight){
+        let bmi = weight / (height*height);
+        let bmiLevel = Math.round(bmi);
+        let output = `${lastname} ${firstname}, born on the ${date} with the gender${gender}, your BMI level is: ${bmiLevel}.`;
+        //check the BMI level and update the message accordingly
+        if(bmiLevel >= 35){
+            output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!";
+        }else if(bmiLevel>=30){
+            output+="You have Adipositas Grad 1.";
+        }else if(bmiLevel >=25){
+            output+="You are Overweight.";
+        }else if(bmiLevel <25){
+            output+= "You have a healthy weight";
+        }
+
+        //
+    }
+}
+    
 
 let buttonElement = document.querySelector("#button");
     buttonElement.addEventListener("click", calculateBmi);
