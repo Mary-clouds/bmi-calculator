@@ -5,13 +5,13 @@ function calculateBmi(event){
     let lastname = document.getElementById("lastName").value;
     let firstname = document.getElementById("firstName").value;
     let date = document.getElementById("birthDate").value;
-    let gender = document.getElementById("gender").value;
+    let gender = document.querySelector('input[name="gender]:checked');
 
     //checking if the valuees exist and are valid numbers
     if(height && weight){
         let bmi = weight / (height*height);
         let bmiLevel = Math.round(bmi);
-        let output = `${lastname} ${firstname}, born on the ${date} with the gender${gender}, your BMI level is: ${bmiLevel}.`;
+        let output = `${lastname} ${firstname}, born on the ${date} with the gender${gender.value}, your BMI level is: ${bmiLevel}.`;
         //check the BMI level and update the message accordingly
         if(bmiLevel >= 35){
             output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!";
