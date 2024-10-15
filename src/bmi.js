@@ -6,6 +6,8 @@ function calculateBmi(event){
     let firstname = document.getElementById('firstName').value;
     let date = document.getElementById('birthDate').value;
 
+
+
     //displaying the selected radio /// find the problem hier later
     let gender = document.getElementsByName('gender');
     let selectedGender = null;
@@ -18,10 +20,12 @@ function calculateBmi(event){
 
     //checking if the valuees exist and are valid numbers
     if(height && weight){
+       
         //Handle the case where no name is input
-        if(lastname.length<=1 && firstname.length<=1){
-            document.getElementById('result').innerHTML ="please enter your first- and lastname!"
-        }
+        if(lastname.length<=1 || firstname.length<=1){
+            document.getElementById('result').innerHTML ="please enter your first- and lastname!";
+            return;
+         }
         //ensure that the gender is selected
         if(!selectedGender){
             document.getElementById('result').innerHTML ="please select a gender.";
@@ -48,6 +52,9 @@ function calculateBmi(event){
         //handle invalid input
         document.getElementById('result').innerHTML = "please enter valid height and weight.";
     }
+
+    //Clear the form after the calculations
+    document.querySelector('form').reset();
 }
     
 //set up event listener for the button
