@@ -26,16 +26,16 @@ function calculateBmi(event){
         //bmi calculation
         let bmi = weight / (height * height);
         let bmiLevel = Math.round(bmi);
-        let output = `${lastname} ${firstname}, born on the ${date} with the gender ${selectedGender}, your BMI level is: ${bmiLevel}.`;
+        let output = `${lastname} ${firstname}, born on the ${date} with the gender ${selectedGender}, your BMI level is: ${bmiLevel}.<br>`;
         //check the BMI level and update the message accordingly
         if(bmiLevel >= 35){
-            output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!";
+            output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!😨";
         }else if(bmiLevel>=30){
-            output+="You have Adipositas Grad 1.";
+            output+="You have Adipositas Grad 1.😰";
         }else if(bmiLevel >=25){
-            output+="You are Overweight.";
+            output+="You are Overweight.😩";
         }else if(bmiLevel <25){
-            output+= "You have a healthy weight";
+            output+= "You have a healthy weight!😮‍💨☺️";
         }
 
         //Display the result
