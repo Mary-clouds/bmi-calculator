@@ -34,7 +34,7 @@ function calculateBmi(event){
         //bmi calculation
         let bmi = weight / (height * height);
         let bmiLevel = Math.round(bmi);
-        let output = `${lastname} ${firstname}, born on the ${date} with the gender ${selectedGender}, your BMI level is: ${bmiLevel}.<br>`;
+        let output = `${lastname} ${firstname}, you were born on the ${date} with the gender ${selectedGender}.<br> your BMI level is: ${bmiLevel}.<br>`;
         //check the BMI level and update the message accordingly
         if(bmiLevel >= 35){
             output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!😨";
