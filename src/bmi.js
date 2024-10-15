@@ -6,7 +6,7 @@ function calculateBmi(event){
     let firstname = document.getElementById('firstName').value;
     let date = document.getElementById('birthDate').value;
 
-
+    
 
     //displaying the selected radio /// find the problem hier later
     let gender = document.getElementsByName('gender');
@@ -17,24 +17,29 @@ function calculateBmi(event){
             break;
         }
     }
-
-    //checking if the valuees exist and are valid numbers
-    if(height && weight){
-       
-        //Handle the case where no name is input
+        
+    //Handle the case where no name is input
         if(lastname.length<=1 || firstname.length<=1){
             document.getElementById('result').innerHTML ="please enter your first- and lastname!";
             return;
          }
-        //ensure that the gender is selected
+    //ensure that the gender is selected
         if(!selectedGender){
             document.getElementById('result').innerHTML ="please select a gender.";
             return;
         }
+
+        //output first message
+    let message = `${lastname.toUpperCase()} ${firstname.toUpperCase()}, you were born on the ${date} with the gender ${selectedGender}.<br>`;
+
+    
+    //checking if the valuees exist and are valid numbers
+    if(height && weight){
+       
         //bmi calculation
         let bmi = weight / (height * height);
         let bmiLevel = Math.round(bmi);
-        let output = `${lastname} ${firstname}, you were born on the ${date} with the gender ${selectedGender}.<br> your BMI level is: ${bmiLevel}.<br>`;
+        let output = `${message} <br>Your BMI level is: ${bmiLevel}.<br>`;
         //check the BMI level and update the message accordingly
         if(bmiLevel >= 35){
             output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!😨";
