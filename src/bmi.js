@@ -58,6 +58,8 @@ function calculateBmi(event){
             output+="You are Overweight.😩";
         }else if(bmiLevel <25){
             output+= "You have a healthy weight!😮‍💨☺️";
+        }else if(bmiLevel <19){
+            output+= "You are Underweight! We recommend you see a doctor!😨";
         }
 
         //Display the result
