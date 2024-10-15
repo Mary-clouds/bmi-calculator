@@ -18,6 +18,10 @@ function calculateBmi(event){
 
     //checking if the valuees exist and are valid numbers
     if(height && weight){
+        //Handle the case where no name is input
+        if(lastname.length<=1 && firstname.length<=1){
+            document.getElementById('result').innerHTML ="please enter your first- and lastname!"
+        }
         //ensure that the gender is selected
         if(!selectedGender){
             document.getElementById('result').innerHTML ="please select a gender.";
