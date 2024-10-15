@@ -25,12 +25,21 @@ function calculateBmi(event){
          }
     //ensure that the gender is selected
         if(!selectedGender){
-            document.getElementById('result').innerHTML ="please select a gender.";
+            document.getElementById('result').innerHTML ="please select a gender!";
             return;
         }
 
-        //output first message
-    let message = `${lastname.toUpperCase()} ${firstname.toUpperCase()}, you were born on the ${date} with the gender ${selectedGender}.<br>`;
+    //change the date format from yyyy-mmm-dd to dd-mm-yyyy
+    let formattedDate;
+    if(date){
+        let[year, month, day]=date.split("-");
+        formattedDate = `${day}.${month}.${year}`;
+    }else{
+        document.getElementById('result').innerHTML ="please select a date!";
+            return;
+    }
+    //output first message
+    let message = `${lastname.toUpperCase()} ${firstname.toUpperCase()}, you were born on the ${formattedDate}. Your gender is ${selectedGender}.<br>`;
 
     
     //checking if the valuees exist and are valid numbers
