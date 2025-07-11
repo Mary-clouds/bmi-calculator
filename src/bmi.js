@@ -1,6 +1,6 @@
 function calculateBmi(event){
     //Getting the values from input fields
-    let height = parseFloat(document.getElementById('bodyHeight').value /100);// to convert the value in meters I did /100
+    let height = parseFloat(document.getElementById('bodyHeight').value) /100;// to convert the value in meters I did /100
     let weight = parseFloat(document.getElementById('bodyWeight').value);
     let lastname = document.getElementById('lastName').value;
     let firstname = document.getElementById('firstName').value;
@@ -50,17 +50,18 @@ function calculateBmi(event){
         let bmiLevel = Math.round(bmi);
         let output = `${message} <br>Your BMI level is: ${bmiLevel}.<br>`;
         //check the BMI level and update the message accordingly
-        if(bmiLevel >= 35){
-            output+="You suffer from Adipositas Grad 2. We recommend you see a doctor!😨";
-        }else if(bmiLevel>=30){
-            output+="You have Adipositas Grad 1.😰";
-        }else if(bmiLevel >=25){
-            output+="You are Overweight.😩";
-        }else if(bmiLevel <25){
-            output+= "You have a healthy weight!😮‍💨☺️";
-        }else if(bmiLevel <19){
-            output+= "You are Underweight! We recommend you see a doctor!😨";
+        if (bmiLevel < 19) {
+        output += "You are Underweight! We recommend you see a doctor!😨";
+        } else if (bmiLevel < 25) {
+        output += "You have a healthy weight!😮‍💨☺️";
+        } else if (bmiLevel < 30) {
+        output += "You are Overweight.😩";
+        } else if (bmiLevel < 35) {
+        output += "You have Adipositas Grad 1.😰";
+        } else {
+        output += "You suffer from Adipositas Grad 2. We recommend you see a doctor!😨";
         }
+
 
         //Display the result
         document.getElementById('result').innerHTML = output;
