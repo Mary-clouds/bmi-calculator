@@ -39,11 +39,11 @@ function calculateBmi(event){
             return;
     }
     //output first message
-    let message = `${lastname.toUpperCase()} ${firstname.toUpperCase()}, you were born on the ${formattedDate}. Your gender is ${selectedGender}.<br>`;
+    let message = `${lastname.toUpperCase()} ${firstname.toUpperCase()}, you were born on the ${formattedDate}. Your gender is ${selectedGender}.`;
 
     
     //checking if the valuees exist and are valid numbers
-    if(height && weight){
+    if(height>=100 && weight>=10){
        
         //bmi calculation
         let bmi = weight / (height * height);
